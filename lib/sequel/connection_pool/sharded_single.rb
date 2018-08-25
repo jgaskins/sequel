@@ -19,8 +19,8 @@ class Sequel::ShardedSingleConnectionPool < Sequel::ConnectionPool
     add_servers(opts[:servers].keys) if opts[:servers]
   end
   
-  # Adds new servers to the connection pool. Primarily used in conjunction with master/slave
-  # or shard configurations. Allows for dynamic expansion of the potential slaves/shards
+  # Adds new servers to the connection pool. Primarily used in conjunction with primary/replica
+  # or shard configurations. Allows for dynamic expansion of the potential replicas/shards
   # at runtime. servers argument should be an array of symbols. 
   def add_servers(servers)
     servers.each{|s| @servers[s] = s}
